@@ -1,0 +1,11 @@
+header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #3888A1;
+  background-image: url("https://www.transparenttextures.com/patterns/subtle-carbon.png");
+  margin-top: 120px;
+}
