@@ -30,10 +30,8 @@ const data = [
 
 $(document).ready(function() {
 
+//renderTweets loops through tweets, calls createTweetElement for each tweet and prepends to tweet container
 const renderTweets = function(tweets) {
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
 $('#tweets-container').empty();
 
 for (const tweet of tweets) {
@@ -41,6 +39,15 @@ for (const tweet of tweets) {
   $('#tweets-container').prepend($tweet);
   }
 }
+
+//loadTweets call the renderTweets and loads to /tweets through the DOM
+const loadTweets = () => {
+  $.ajax({ url: "/tweets",  method: "GET" })
+    .then(function(tweets) {
+      renderTweets(tweets.reverse());
+    });
+};
+loadTweets ();
 
 const createTweetElement = function(tweet) {
   const { user, content, created_at } = tweet;
@@ -68,5 +75,24 @@ return $tweet;
 }
 
 
-renderTweets(data);
+//renderTweets(data);
+
+
+//Listeners
+$("#form-tweets").on( "submit", function(event) {
+  event.preventDefault();
+  console.log( $( this ).serialize() );
+  const string = $(this).serialize();
+  const data = string.replace(/%20/g, "").split("=")[1];
+  
+  $.ajax("/tweets", {method: 'POST', data: data}).then(function () {
+    $("#tweets-container").empty()
+    loadTweets();
+    //$("#tweet-text").val("")
+    //$("#tweet-text").focus();
+    
+  });
+  
 });
+
+}); //Document.ready closing brace
