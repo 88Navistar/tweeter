@@ -1,0 +1,30 @@
+.tweet {
+  border: solid 5px;
+}
+
+.tweet:hover {
+  box-shadow: 4px 4px 11px rgba(55, 122, 199, 1);
+}
+
+.tweet hr {
+  border-top: solid 5px;
+  width: 96%;
+}
+
+.tweet header {
+  display: flex;
+  background-color: #f4f1ec;
+  flex-direction: row;
+  justify-content: space-between;
+  height: auto;
+  margin: auto;
+
+}
+
+.tweet footer {
+  display: flex;
+  background-color: #f4f1ec;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
