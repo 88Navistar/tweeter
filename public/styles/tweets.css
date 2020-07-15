@@ -1,9 +1,11 @@
 .tweet {
   border: solid 5px;
+  opacity: .7;
 }
 
 .tweet:hover {
   box-shadow: 4px 4px 11px rgba(55, 122, 199, 1);
+  opacity: 1;
 }
 
 .tweet hr {
@@ -18,6 +20,7 @@
   justify-content: space-between;
   height: auto;
   margin: auto;
+  width: 96%;
 
 }
 
@@ -26,5 +29,12 @@
   background-color: #f4f1ec;
   flex-direction: row;
   justify-content: space-between;
+  width: 96%;
 }
-
+.tweet .handle {
+  display: none;
+}
+.tweet:hover .handle {
+  display: block;
+  color: rgb(55, 122, 199);
+}
