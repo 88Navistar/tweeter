@@ -15,12 +15,16 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -35,7 +39,7 @@
     </div>
     <br>
     <div>
-        <h2>Rob WallyGator</h2>
+        <h2>Wally Gator</h2>
     </div>
   </header>
 
@@ -51,6 +55,24 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section id="tweets-container">
+        <article class="tweet">
+          <header>
+            <div>
+              <img> 'need avatar'
+            </div>
+            <span>User Handle</span>
+          </header>
+          <div><p>Placeholder what ev was tweeted</p></div>
+           <hr> <!--semantic break for border/line -->
+          <footer>
+            <h5>X days ago</h5>
+            <div>
+              <p>list or something for the 3 small icons</p>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
