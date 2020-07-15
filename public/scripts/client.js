@@ -81,18 +81,35 @@ return $tweet;
 //Listeners
 $("#form-tweets").on( "submit", function(event) {
   event.preventDefault();
-  console.log( $( this ).serialize() );
-  const string = $(this).serialize();
-  const data = string.replace(/%20/g, "").split("=")[1];
-  
+  //console.log( $( this ).serialize() );
+  const data = $(this).serialize();
+  //const input = data.replace(/%20/g, "").split("=")[1];
+  //console.log("string", string);
+  console.log('data :>> ', data);
   $.ajax("/tweets", {method: 'POST', data: data}).then(function () {
     $("#tweets-container").empty()
     loadTweets();
-    //$("#tweet-text").val("")
-    //$("#tweet-text").focus();
+    $("#tweet-text").val("")
+    $("#tweet-text").focus();
     
   });
+  // $("#form-tweets").on("submit", function (event) {
+  //   event.preventDefault();
+  //   const data = $(this).serialize();
+  //   const input = data.replace(/%20/g, "").split("=")[1];
+  //   if (!input || input.length > 140) {
+  //     $("#form").prepend(
+  //       $(`<div id="error-message">
+  //     <p>Invalid tweet! Please stay within the 140 char limit</p>
+  //   </div>`)
+  //     );
+  //   } else {
+  //     $.post("/tweets", data).then(function () {
+  //       loadTweets();
+  //       $("#tweet-text").val("");
+  //       $("#tweet-text").focus();
+  //     });
+  //   }
+  });
   
-});
-
 }); //Document.ready closing brace
