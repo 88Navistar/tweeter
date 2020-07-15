@@ -28,16 +28,48 @@ const data = [
   }
 ]
 
+$(document).ready(function() {
+  console.log('fire this')
+
 const renderTweets = function(tweets) {
 // loops through tweets
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
+$('#tweets-container').empty();
+
+for (const tweet of tweets) {
+  console.log("renderTweets -> tweets", tweets)
+  const $tweet = createTweetElement(tweet);
+
+  $('#tweets-container').prepend($tweet);
+  }
 }
 
 const createTweetElement = function(tweet) {
-let $tweet = /* Your code for creating the tweet element */
-// ...
+  const { user, content, created_at } = tweet;
+  let $tweet = `<article class="tweet">
+    <header>
+      <div>
+        <img src="${user.avatars}" alt="Users Avatar">
+        <p>${user.name}</p>
+      </div>
+      <div>${user.handle}</div>
+    </header>
+    <div><p>${content}</p></div>
+    <hr>
+    <footer>
+      <p>${created_at}</p>
+      <div>
+        <i class="fa fa-flag" aria-hidden="false"></i>
+        <i class="fa fa-retweet" aria-hidden="false"></i>
+        <i class="fa fa-heart" aria-hidden="false"></i>
+      </div>
+    </footer>
+    </article>`
+
 return $tweet;
 }
 
+
 renderTweets(data);
+});
