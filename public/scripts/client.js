@@ -29,7 +29,6 @@ const data = [
 ]
 
 $(document).ready(function() {
-  console.log('fire this')
 
 const renderTweets = function(tweets) {
 // loops through tweets
@@ -38,9 +37,7 @@ const renderTweets = function(tweets) {
 $('#tweets-container').empty();
 
 for (const tweet of tweets) {
-  console.log("renderTweets -> tweets", tweets)
   const $tweet = createTweetElement(tweet);
-
   $('#tweets-container').prepend($tweet);
   }
 }
