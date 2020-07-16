@@ -4,7 +4,7 @@
  * Do not modify these two selectors, please
  */
 html {
-  box-sizing: border-box;
+  
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -30,3 +30,16 @@ body {
    margin: 0 auto;
    margin-top: 30px;
  }
+/* Color Theme Swatches in Hex */
+.My-Color-Theme-1-hex { color: #6348A1; }
+.My-Color-Theme-2-hex { color: #A17950; }
+.My-Color-Theme-3-hex { color: #4056A1; }
+.My-Color-Theme-4-hex { color: #A19930; }
+.My-Color-Theme-5-hex { color: #3888A1; }
+
+/* Color Theme Swatches in RGBA */
+.My-Color-Theme-1-rgba { color: rgba(99, 72, 161, 1); }
+.My-Color-Theme-2-rgba { color: rgba(161, 121, 80, 1); }
+.My-Color-Theme-3-rgba { color: rgba(64, 86, 161, 1); }
+.My-Color-Theme-4-rgba { color: rgba(161, 153, 48, 1); }
+.My-Color-Theme-5-rgba { color: rgba(56, 136, 161, 1); }
