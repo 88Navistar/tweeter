@@ -9,3 +9,8 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/subtle-carbon.png");
   margin-top: 120px;
 }
+
+header h2 {
+  color:  #6348A1;
+  font-weight: bold;
+}
