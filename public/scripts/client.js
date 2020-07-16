@@ -40,7 +40,6 @@ const escape =  function(str) {
 
 //renderTweets loops through tweets, calls createTweetElement for each tweet and prepends to tweet container
 const renderTweets = function(tweets) {
-$('#tweets-container').empty();
 
 for (const tweet of tweets) {
   const $tweet = createTweetElement(tweet);
@@ -52,7 +51,8 @@ for (const tweet of tweets) {
 const loadTweets = () => {
   $.ajax({ url: "/tweets",  method: "GET" })
     .then(function(tweets) {
-      renderTweets(tweets.reverse());
+      $('#tweets-container').empty();
+      renderTweets(tweets);
     });
 };
 loadTweets ();
@@ -90,35 +90,19 @@ return $tweet;
 //Listeners
 $("#form-tweets").on( "submit", function(event) {
   event.preventDefault();
-  //console.log( $( this ).serialize() );
   const data = $(this).serialize();
   //const input = data.replace(/%20/g, "").split("=")[1];
-  //console.log("string", string);
-  console.log('data :>> ', data);
+
+    if ($("#tweet-text").val().length > 140 || !$("#tweet-text").val()) {
+      $("#form-tweets").append($(`<div id="errMsg"> <p> Please tweet between 1 and 140 characters </> </div>`));
+    } else {
   $.ajax("/tweets", {method: 'POST', data: data}).then(function () {
-    $("#tweets-container").empty()
     loadTweets();
     $("#tweet-text").val("")
     $("#tweet-text").focus();
-    
-  });
-  // $("#form-tweets").on("submit", function (event) {
-  //   event.preventDefault();
-  //   const data = $(this).serialize();
-  //   const input = data.replace(/%20/g, "").split("=")[1];
-  //   if (!input || input.length > 140) {
-  //     $("#form").prepend(
-  //       $(`<div id="error-message">
-  //     <p>Invalid tweet! Please stay within the 140 char limit</p>
-  //   </div>`)
-  //     );
-  //   } else {
-  //     $.post("/tweets", data).then(function () {
-  //       loadTweets();
-  //       $("#tweet-text").val("");
-  //       $("#tweet-text").focus();
-  //     });
-  //   }
+
+      });
+    }
   });
   
 }); //Document.ready closing brace
