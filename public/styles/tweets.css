@@ -38,3 +38,18 @@
   display: block;
   color: rgb(55, 122, 199);
 }
+
+.errMsg {
+  display: flex;
+  border: solid;
+  border-color: #A19930;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  width: 50%;
+}
+.errMsg p {
+  color: #6348A1;
+  font-size: medium;
+  font-weight: bold;
+}
