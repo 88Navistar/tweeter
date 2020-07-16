@@ -3,32 +3,40 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 $(document).ready(function() {
+
+//Helper functions ------>>>
+//Escape xss attack
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 //renderTweets loops through tweets, calls createTweetElement for each tweet and prepends to tweet container
 const renderTweets = function(tweets) {
@@ -51,6 +59,7 @@ loadTweets ();
 
 const createTweetElement = function(tweet) {
   const { user, content, created_at } = tweet;
+  const xssSafe = escape(content.text);
   let $tweet = `<article class="tweet">
     <header>
       <div>
@@ -59,7 +68,7 @@ const createTweetElement = function(tweet) {
       </div>
       <div class="handle">${user.handle}</div>
     </header>
-    <div><p>${content}</p></div>
+    <div><p>${xssSafe}</p></div>
     <hr>
     <footer>
       <p>${created_at}</p>
