@@ -13,6 +13,7 @@ form textarea {
   background-color: #e6f5f9e0;
   color: #545149;
   resize: none;
+  overflow: scroll;
 
 }
 

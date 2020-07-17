@@ -42,7 +42,7 @@ $(document).ready(function() {
     <div><p>${xssSafe}</p></div>
     <hr>
     <footer>
-      <p>${created_at}</p>
+      <span>${moment(user.created_at).fromNow()}</span>
       <div>
         <i class="fa fa-flag" aria-hidden="false"></i>
         <i class="fa fa-retweet" aria-hidden="false"></i>
@@ -55,6 +55,7 @@ $(document).ready(function() {
   };
 
   //Listeners
+  //Submit Tweet
   $("#form-tweets").on("submit", function(event) {
     event.preventDefault();
   
@@ -74,4 +75,11 @@ $(document).ready(function() {
       });
     }
   });
+
+  //Form Toggle...go to tweet field on click (Stretch One)
+  $("#top-icon").on("click", function() {
+    $("#top-icon").slideDown(600);
+    $("#tweet-text").focus();
+  });
+
 }); //Document.ready closing brace
