@@ -18,7 +18,7 @@ Built to practice HTML, CSS, JS, jQuery and AJAX front-end skills, and Node, Exp
 - Body-parser 1.15.2
 - Chance 1.0.2
 - MD5 2.1.0
-- Moment 2.27.0 //not required
+- Moment 2.27.0 // If prefered over script
 - Nodeman 1.9.2 Optional
 
 ## Final Product
